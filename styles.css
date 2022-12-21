@@ -1,9 +1,36 @@
+/** {
+  border: 2px solid blue;
+} Esto sirve para ver que todo en la web son cajas*/
 body {
-    color: white;
-    background-color: black;
+    color: rgb(156, 181, 234);
+    background-color: rgb(31, 32, 34);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-  
+  h1, h2 {
+    font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+  }
+  h1 {
+    display: table;
+    text-align: center;
+    border: 1px;
+    padding: 5px;
+    margin: 1px auto 1px auto; /*Esto es para centrar la tabla ya que text-align sólo centra el texto en la celda*/
+    background-color: rgba(36, 36, 192, 0.13);
+  }
+  h2 {
+    display: table;
+    text-align: center;
+    border: 1px;
+    padding: 5px;
+    margin: 1px auto 1px auto; /*Esto es para centrar la tabla ya que text-align sólo centra el texto en la celda*/
+    background-color: rgba(23, 23, 147, 0.176);
+    box-sizing: border-box;/*Esto es para que height & width se tengan en cuenta como tamaño total del objeto, aunque 
+    parece que esto se aplica para un elemento div genérico, no para header*/
+  }
   p {
-    color: rgb(142, 194, 214);
-    
+    color: rgb(198, 199, 224); 
+  }
+  a {
+    color: rgb(191, 227, 239);
   }
