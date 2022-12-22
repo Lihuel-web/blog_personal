@@ -1,11 +1,14 @@
 /** {
   border: 2px solid blue;
 } Esto sirve para ver que todo en la web son cajas*/
-.titYnavSection { /*Conjunto de título y minimenú*/
-  position: fixed;/* Set the navbar to fixed position */
+.container { /*Conjunto de título y minimenú*/
+  display: flex;
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
-  background-color: rgba(4, 4, 22, 0.839);
+}
+.header{
+  display: inline-block;
+  position: absolute;
 }
 .main-menu { /*Menucito de arriba a la izq*/
   right: 0;
@@ -15,8 +18,7 @@
   background-color: rgba(70, 188, 224, 0.22);
 }
 .main-menu ul{ 
-  display: block;
-  flex-direction: column;
+ 
 margin: 0;
 padding: 5px;
 border: 0;
@@ -26,10 +28,8 @@ border: 0;
   margin-right: 4px;
 }
 body {
-    display: flex;
     margin: 0; /*este margen y relleno de cero es importante porq me quedaba un hueco en el body que no sabía de dónde venía*/
     padding: 0;
-    flex-direction: column;
     color: rgb(156, 181, 234);
     background-color: rgb(31, 32, 34);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -40,11 +40,21 @@ body {
   }
   h1 { /*Título principal*/
     margin-left: 0;
-    height: 30px;
-    margin-top: 6px;
+    height: 50px;
+    margin-top: 0px;
     text-align: center;
     width: 100%;
+    background-color: rgba(4, 4, 22, 0.839);
+    position: fixed;
   }
+  h2::before { /*Para dejar un espacio invisible detrás de los elementos h2 para que al hacer click en el link no los tape */
+    display: block; 
+    content: " "; 
+    margin-top: -60px; /*Este valor debe ser lo más cercano posible al tamaño del título para evitar problemas con otros elementos h2 más abajo*/
+    height: 60px; 
+    visibility: hidden; 
+    pointer-events: none;
+  } /*para evitar que el título fijo tape al header cuando hago click en el link de anchor*/
   h2 { /*títulos artículos*/
     display: table;
     text-align: center;
@@ -54,8 +64,9 @@ body {
     background-color: rgba(23, 23, 147, 0.176);
     box-sizing: border-box;/*Esto es para que height & width se tengan en cuenta como tamaño total del objeto, aunque 
     parece que esto se aplica para un elemento div genérico, no para header*/
+    
   }
-  .leftmenuYart {
+  .leftrightmenuYart {
     display: flex;
   }
   main { /*main contiene article*/
@@ -97,6 +108,9 @@ body {
     font-size: small;
     font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 200;
+  }
+  .page_content a {
+
   }
 
   p {
