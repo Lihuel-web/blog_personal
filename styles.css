@@ -1,7 +1,35 @@
 /** {
   border: 2px solid blue;
 } Esto sirve para ver que todo en la web son cajas*/
+.titYnavSection { /*Conjunto de título y minimenú*/
+  position: fixed;/* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  background-color: rgba(4, 4, 22, 0.839);
+}
+.main-menu { /*Menucito de arriba a la izq*/
+  right: 0;
+  top: 51.5px;
+  position: fixed;
+  font-size: x-small;
+  background-color: rgba(70, 188, 224, 0.22);
+}
+.main-menu ul{ 
+  display: block;
+  flex-direction: column;
+margin: 0;
+padding: 5px;
+border: 0;
+}
+.main-menu li{
+  display: inline;
+  margin-right: 4px;
+}
 body {
+    display: flex;
+    margin: 0; /*este margen y relleno de cero es importante porq me quedaba un hueco en el body que no sabía de dónde venía*/
+    padding: 0;
+    flex-direction: column;
     color: rgb(156, 181, 234);
     background-color: rgb(31, 32, 34);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -10,15 +38,14 @@ body {
     font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 200;
   }
-  h1 {
-    display: table;
+  h1 { /*Título principal*/
+    margin-left: 0;
+    height: 30px;
+    margin-top: 6px;
     text-align: center;
-    border: 1px;
-    padding: 5px;
-    margin: 1px auto 1px auto; /*Esto es para centrar la tabla ya que text-align sólo centra el texto en la celda*/
-    background-color: rgba(36, 36, 192, 0.13);
+    width: 100%;
   }
-  h2 {
+  h2 { /*títulos artículos*/
     display: table;
     text-align: center;
     border: 1px;
@@ -28,9 +55,61 @@ body {
     box-sizing: border-box;/*Esto es para que height & width se tengan en cuenta como tamaño total del objeto, aunque 
     parece que esto se aplica para un elemento div genérico, no para header*/
   }
+  .leftmenuYart {
+    display: flex;
+  }
+  main { /*main contiene article*/
+    margin-top: 60px; /*para que el título fijo no tape el fondo*/
+    margin-left: 90px;
+    margin-right: 90px;
+}
+  article {
+
+  }
+  .site_content ul {
+    display: block;
+    width: 65px;
+    margin-top: 0px;
+    padding-top: 55px;
+    padding-left: 12px;
+    padding-bottom: 100%;
+    margin-left: 0px;
+    border-top: 0px;
+    left: 0;
+    background-color: rgb(11, 11, 32);
+    position: fixed;
+    font-size: small;
+    font-family:'Times New Roman', Times, serif;
+  }
+  .page_content ul {
+    display: block;
+    width: 65px;
+    margin-top: 69px;
+    padding-top: 2px;
+    padding-right: 1px;
+    padding-bottom: 100%;
+    padding-left: 12px;
+    margin-left: 0px;
+    border-top: 0px;
+    right: 0;
+    background-color: rgb(11, 11, 32);
+    position: fixed;
+    font-size: small;
+    font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+  }
+
   p {
-    color: rgb(198, 199, 224); 
+    color: rgb(198, 199, 224);
+    text-align: justify;
   }
   a {
     color: rgb(191, 227, 239);
+  }
+  footer p {
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    color: rgb(197, 210, 222);
+    text-shadow: 3px 3px 10px blue;
   }
