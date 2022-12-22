@@ -87,6 +87,15 @@ body {
     font-size: small;
     font-family:'Times New Roman', Times, serif;
   }
+  @media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
+    y para quitar el margen derecho también en el texto*/
+    .page_content{
+        display:none;
+    }
+    main {
+      margin-right: 5px;
+    }
+}
   .page_content ul {
     display: block;
     z-index: 1;
