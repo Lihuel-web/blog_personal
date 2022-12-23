@@ -89,9 +89,10 @@ body {
   }
   @media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
     y para quitar el margen derecho también en el texto*/
-    .site_content#cel ul { /*esto es para que esta selección tenga prioridad por el id lo de site content es para recordar q era*/
+    .site_content#cel ul { /*esto es para que esta selección tenga prioridad por el id, lo de site content es para recordar q era.
+      dejar espacio es para children y sin espacio es para dos o más nombres compartidos del mismo objeto*/
       font-size: xx-small;
-      padding-bottom: 100%;
+      padding-bottom: 200%;
       margin-left: 0;
       padding-left: 3px;
       width: 35px;
