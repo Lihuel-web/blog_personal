@@ -51,7 +51,7 @@ body {
     font-weight: 200;
   }
   h1 { /*Título principal*/
-    
+
   }
   h2::before { /*Para dejar un espacio invisible detrás de los elementos h2 para que al hacer click en el link no los tape */
     display: block; 
@@ -105,6 +105,12 @@ body {
       padding-left: 3px;
       width: 35px;
       list-style: none;
+    }
+    header {
+      justify-content: center;
+    }
+    .empty_div_header {
+    display: none;
     }
     .site_content#cel ul li {
       margin-bottom: 4px;
