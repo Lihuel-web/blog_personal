@@ -7,6 +7,8 @@
   box-sizing: border-box; /*Sirve para que las cosas se ajusten a su width y no hagan overflow o se desborden*/
 } 
 header { /*Conjunto de título y minimenú*/
+  align-items: center;
+  height: 55px;
   z-index: 9; /*cuanto más alto, más adelante queda*/
   display: flex;
   justify-content: space-between;
@@ -16,18 +18,25 @@ header { /*Conjunto de título y minimenú*/
   background-color: rgba(4, 4, 22, 0.839);
 }
 .empty_div_header {
-  width: 120px; /*invisible, sólo para que el título quede centrado*/
+  width: 119px; /*invisible, sólo para que el título quede centrado*/
 }
 .title_header {
-
   
 }
 .main-menu { /*Menucito de arriba a la izq*/
-  z-index: 9;
+  display:flex;
+  flex-direction: column; /*para que estén sus ítems uno abajo del otro en lugar de al lado*/
+  z-index: 10;
   font-size: x-small;
-  width: 120px;
+  width: 119px;
   background-color: rgba(70, 188, 224, 0.22);
   padding: 2px;
+}
+.empty_up_main-menu {
+  height: 20px;
+}
+.empty_down_main-menu {
+  height: 20px;
 }
 .main-menu li{
   display: inline;
