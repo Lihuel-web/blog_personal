@@ -8,9 +8,9 @@ class NavPage extends HTMLElement {
     this.innerHTML = `
     <nav class="page_content">
     <ul>
-        <span><li><a href="#¡Hola!">¡Hola!</a></li></span>
-        <span><li><a href="#Inteligencia artificial">Inteligencia artificial</a></li></span>
-        <span><li><a href=""></a></li></span>
+        <li><a href="#¡Hola!">¡Hola!</a></li>
+        <li><a href="#Inteligencia artificial">Inteligencia artificial</a></li>
+        <li><a href="">lala</a></li>
     </ul>
 </nav>
     `;

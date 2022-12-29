@@ -1,10 +1,10 @@
 .site_content ul {
     display: flex;
-    z-index: -10;
+    z-index: auto;
     flex-direction: column;
     text-align: left;
     top: 0;
-    width: 55px;
+    width: 80px;
     list-style-type: none;
     margin-top: 0px;
     padding-top: 60px;
@@ -34,8 +34,5 @@
     }
     .page_content{
         display:none;
-    }
-    .main-menu {
-      display: none;
     }
 }

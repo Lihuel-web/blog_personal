@@ -6,7 +6,9 @@
   padding: 0;
   box-sizing: border-box; /*Sirve para que las cosas se ajusten a su width y no hagan overflow o se desborden*/
 }
-
+.flexcontainer {
+  display: flex;
+}
 body {
     color: rgb(156, 181, 234);
     background-color: rgb(31, 32, 34);
@@ -40,8 +42,8 @@ body {
   }
   main { /*main contiene article*/
     margin-top: 60px; /*para que el título fijo no tape el fondo*/
-    margin-left: 90px;
-    margin-right: 90px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
   @media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom

@@ -2,7 +2,7 @@ header { /*Conjunto de título y minimenú*/
     display: flex;
     align-items: center;
     height: 55px;
-    z-index: 3; /*cuanto más alto, más adelante queda*/ 
+    z-index: auto; /*cuanto más alto, más adelante queda*/ 
     justify-content: center;
     position: fixed;
     top: 0; /* Position the navbar at the top of the page */

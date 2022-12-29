@@ -8,9 +8,9 @@ class NavSite extends HTMLElement {
     this.innerHTML = `
     <nav class="site_content" id="cel">
     <ul>
-        <li><a href="/peliculas/peliculas.html">Películas</a></li>
+        <li><a href="peliculas/peliculas.html">Películas</a></li>
         <li><a href="index.html">Acerca de</a></li>
-        <li><a href="/../contacto.html">Contacto</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
     </ul>
     </nav>
     `;

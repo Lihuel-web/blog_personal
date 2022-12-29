@@ -1,16 +1,28 @@
 .main-menu { /*Menucito de arriba a la der*/
     display:flex; /*para que estén sus ítems uno abajo del otro en lugar de al lado se usa column flex direction*/
-    z-index: 99;
+    position: fixed;
+    height: 55px;
+    z-index: 1;
     top: 0;
     font-size: x-small;
-    width: 119px;
+    width: 80px;
+    padding: 5px 0px 6px 13px;
     background-color: rgba(70, 188, 224, 0.22);
-    padding: 2px;
+  }
+  .main-menu ul li{
+    margin-bottom: 2px;
   }
   @media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
     y para quitar el margen derecho también en el texto*/
+    .main-menu { /*esto es para que esta selección tenga prioridad por el id, lo de site content es para recordar q era.
+        dejar espacio es para children y sin espacio es para dos o más nombres compartidos del mismo objeto*/
+        width: 40px;
+        padding-left: 3px;
+      }
+    .main-menu ul {
+        font-size: xx-small;
+        list-style: none;
 
-    .main-menu {
-      display: none;
     }
+    
 }
