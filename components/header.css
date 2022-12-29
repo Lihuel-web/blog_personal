@@ -1,0 +1,24 @@
+header { /*Conjunto de título y minimenú*/
+    display: flex;
+    align-items: center;
+    height: 55px;
+    z-index: 3; /*cuanto más alto, más adelante queda*/ 
+    justify-content: center;
+    position: fixed;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+    background-color: rgba(4, 4, 22, 0.839);
+}
+.empty_div_header {
+  width: 119px; /*invisible, sólo para que el título quede centrado*/
+}
+
+  @media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
+    y para quitar el margen derecho también en el texto*/
+    header {
+      justify-content: center;
+    }
+    .empty_div_header {
+    display: none;
+    }
+}

@@ -1,0 +1,26 @@
+
+    .page_content ul {
+        display: block;
+        top: 0;
+        z-index: 11;
+        width: 65px;
+        margin-top: 0px;
+        padding-top: 30px;
+        padding-right: 1px;
+        padding-bottom: 100%;
+        padding-left: 12px;
+        margin-left: 0px;
+        border-top: 0px;
+        right: 0;
+        background-color: rgb(11, 11, 32);
+        position: fixed;
+        font-size: small;
+        font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 200;
+      }
+  @media screen and (max-width: 600px) {
+    .page_content{
+        display:none;
+    }
+
+}

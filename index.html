@@ -6,26 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--The rel attribute is required, and it specifies the relationship between the HTML file and the linked file.-->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components/header.css">
+    <link rel="stylesheet" href="components/mainMenu.css">
+    <link rel="stylesheet" href="components/navPage.css">
+    <link rel="stylesheet" href="components/navSite.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!--el/los links de la fuente externa van después del link a la hoja de css-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/mainMenu.js" type="text/javascript" defer></script>
+    <script src="components/navSite.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
+    <script src="components/navPage.js" type="text/javascript" defer></script>
     <title>blog_personal_Lihuel</title>
 </head>
 <body>
-        <header>
-            <div class="empty_div_header"></div>
-            <div class="title_header"><h1>Blog del profe Lihuel</h1></div>
-            <div class= "main-menu"><nav>
-                <div class= "empty_up_main-menu"></div>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="">Acerca de</a></li>
-                        <li><a href="">Contacto</a></li>
-                    </ul>
-                <div class= "empty_down_main-menu"></div>
-                </nav>
-            </div>
-        </header>
+    <header-component></header-component>
+    <mainmenu-component></mainmenu-component>
+    <navsite-component></navsite-component>
+    <navpage-component></navpage-component>
         <span class="leftrightmenuYart">
             <main>
                 <article>
@@ -57,32 +56,9 @@
                     </p>
                 </article>
             </main>
-            <nav class="site_content" id="cel">
-                <ul>
-                    <span><li><a href="peliculas/peliculas.html">Películas</a></li></span>
-                    <span><li><a href="">Acerca de</a></li></span>
-                    <span><li><a href="">Contacto</a></li></span>
-                </ul>
-             </nav>
-             <nav class="page_content">
-                <ul>
-                    <span><li><a href="#¡Hola!">¡Hola!</a></li></span>
-                    <span><li><a href="#Inteligencia artificial">Inteligencia artificial</a></li></span>
-                    <span><li><a href=""></a></li></span>
-                </ul>
-<!--On the page you want to link to:
- Así se crea un link a otra página según ChatGPT, google no me daba la info
-Copy code
-<h2 id="target">This is the target element</h2>
-On the page with the link:
-Copy code
-<a href="otherpage.html#target">Click here to go to the target element on the other page</a> -->             
-            </nav>
+
             </span>
-    <footer>
-        <p>Copyright 2022</p>
-        <p>E-mail: a77lejandro@gmail.com</p>
-    </footer>
+        <footer-component></footer-component>
 </body>
 </html>
 

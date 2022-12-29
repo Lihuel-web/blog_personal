@@ -5,42 +5,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; /*Sirve para que las cosas se ajusten a su width y no hagan overflow o se desborden*/
-} 
-header { /*Conjunto de título y minimenú*/
-  align-items: center;
-  height: 55px;
-  z-index: 9; /*cuanto más alto, más adelante queda*/
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%;
-  background-color: rgba(4, 4, 22, 0.839);
 }
-.empty_div_header {
-  width: 119px; /*invisible, sólo para que el título quede centrado*/
-}
-.title_header {
-  
-}
-.main-menu { /*Menucito de arriba a la izq*/
-  display:flex;
-  flex-direction: column; /*para que estén sus ítems uno abajo del otro en lugar de al lado*/
-  z-index: 10;
-  font-size: x-small;
-  width: 119px;
-  background-color: rgba(70, 188, 224, 0.22);
-  padding: 2px;
-}
-.empty_up_main-menu {
-  height: 20px;
-}
-.empty_down_main-menu {
-  height: 20px;
-}
-.main-menu li{
-  display: inline;
-}
+
 body {
     color: rgb(156, 181, 234);
     background-color: rgb(31, 32, 34);
@@ -49,9 +15,6 @@ body {
   h1, h2 {
     font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 200;
-  }
-  h1 { /*Título principal*/
-
   }
   h2::before { /*Para dejar un espacio invisible detrás de los elementos h2 para que al hacer click en el link no los tape */
     display: block; 
@@ -80,73 +43,15 @@ body {
     margin-left: 90px;
     margin-right: 90px;
 }
-  .site_content ul {
-    display: block;
-    width: 55px;
-    margin-top: 0px;
-    padding-top: 55px;
-    padding-left: 12px;
-    padding-bottom: 100%;
-    margin-left: 0px;
-    border-top: 0px;
-    left: 0;
-    background-color: rgb(11, 11, 32);
-    position: fixed;
-    font-size: small;
-    font-family:'Times New Roman', Times, serif;
-  }
+
   @media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
     y para quitar el margen derecho también en el texto*/
-    .site_content#cel ul { /*esto es para que esta selección tenga prioridad por el id, lo de site content es para recordar q era.
-      dejar espacio es para children y sin espacio es para dos o más nombres compartidos del mismo objeto*/
-      font-size: xx-small;
-      padding-bottom: 200%;
-      margin-left: 0;
-      padding-left: 3px;
-      width: 35px;
-      list-style: none;
-    }
-    header {
-      justify-content: center;
-    }
-    .empty_div_header {
-    display: none;
-    }
-    .site_content#cel ul li {
-      margin-bottom: 4px;
-    }
-    .page_content{
-        display:none;
-    }
-    .main-menu {
-      display: none;
-    }
     main {
       margin-right: 15px;
-      margin-left: 40px;
+      margin-left: 45px;
     }
   }
-  .page_content ul {
-    display: block;
-    z-index: 1;
-    width: 65px;
-    margin-top: 0px;
-    padding-top: 55px;
-    padding-right: 1px;
-    padding-bottom: 100%;
-    padding-left: 12px;
-    margin-left: 0px;
-    border-top: 0px;
-    right: 0;
-    background-color: rgb(11, 11, 32);
-    position: fixed;
-    font-size: small;
-    font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 200;
-  }
-  .page_content a {
 
-  }
 
   p {
     color: rgb(198, 199, 224);
