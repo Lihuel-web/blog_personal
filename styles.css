@@ -31,7 +31,7 @@ body {
     text-align: center;
     border: 1px;
     padding: 5px;
-    margin: 1px auto 1px auto; /*Esto es para centrar la tabla ya que text-align sólo centra el texto en la celda*/
+    margin: 10px auto 1px auto; /*Esto es para centrar la tabla ya que text-align sólo centra el texto en la celda*/
     background-color: rgba(23, 23, 147, 0.176);
     box-sizing: border-box;/*Esto es para que height & width se tengan en cuenta como tamaño total del objeto, aunque 
     parece que esto se aplica para un elemento div genérico, no para header*/
@@ -53,6 +53,20 @@ body {
       margin-left: 45px;
     }
   }
+    @media screen and (min-width: 1500px) {
+  
+      main {
+        margin-left: 350px;
+        margin-right: 350px;
+        margin-top: 150px;
+        font-size: xx-large;
+      }
+      h2::before {
+        margin-top: -125px;
+        height: 125px; 
+      }
+    }
+  
 
 
   p {
@@ -61,11 +75,4 @@ body {
   }
   a {
     color: rgb(191, 227, 239);
-  }
-  footer p {
-    text-align: center;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-weight: 600;
-    color: rgb(197, 210, 222);
-    text-shadow: 3px 3px 10px blue;
   }

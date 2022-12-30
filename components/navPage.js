@@ -7,12 +7,12 @@ class NavPage extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <nav class="page_content">
-    <ul>
-        <li><a href="#¡Hola!">¡Hola!</a></li>
-        <li><a href="#Inteligencia artificial">Inteligencia artificial</a></li>
-        <li><a href="">lala</a></li>
-    </ul>
-</nav>
+      <ul>
+          <li><a href="#¡Hola!">¡Hola!</a></li>
+          <li><a href="#Inteligencia artificial">Inteligencia artificial</a></li>
+          <li><a href="">lala</a></li>
+      </ul>
+    </nav>
     `;
   }
   }

@@ -1,0 +1,14 @@
+footer p {
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    color: rgb(197, 210, 222);
+    text-shadow: 3px 3px 10px blue;
+    margin-top: 20px;
+  }
+  @media screen and (min-width: 1500px) {
+  
+    footer p {
+      font-size: xx-large;
+    }
+  }

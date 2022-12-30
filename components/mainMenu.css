@@ -26,3 +26,11 @@
     }
     
 }
+@media screen and (min-width: 1500px) {
+  
+      .main-menu {
+          width: 300px;
+          font-size: xx-large;
+          height: 125px;
+      }
+  }

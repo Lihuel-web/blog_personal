@@ -36,3 +36,11 @@
         display:none;
     }
 }
+@media screen and (min-width: 1500px) {
+  
+  .site_content ul{
+      width: 300px;
+      font-size: xx-large;
+      padding-top: 140px;
+  }
+}
