@@ -126,6 +126,7 @@
             font-weight: 545;
           }/*para evitar que el título fijo tape al header cuando hago click en el link de anchor*/
           footer {
+            font-size: 1em;
             text-align: center;
             font-family:Georgia, 'Times New Roman', Times, serif;
             font-weight: 600;
@@ -174,6 +175,9 @@
     main article {/*contenedor de los artículos*/
         font-size: 0.6em;
         }
+    footer {
+        font-size: 0.6em;
+    }
     .site_content { /*abajo leftbar*/
         display: table; /*esto al padre para centrar*/
         padding-top: 0;
@@ -198,4 +202,7 @@
     main article {/*contenedor de los artículos*/
         font-size: 2em;
         }
+    footer {
+        font-size: 2em;
+    }
 }
