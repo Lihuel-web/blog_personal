@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0; 
+    color: bisque;
+    box-sizing: border-box;
+  }
+.layoutcontainer {
+    background-image: linear-gradient(to bottom right, rgb(8, 2, 56), rgb(8, 15, 85), rgb(8, 2, 56));
+    /*border: 1px solid rgb(188, 39, 214); for debugging*/
+    justify-content:center; /*sólo para las flexboxes, para el texto es text align*/
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    font-size: x-large;
+    list-style-position: inside; /*por esto las viñetas se me quedaban afuera de las boxes*/
+}
+    .leftbar { /*barra izquierda*/
+        flex-direction: column;
+        text-align: center;
+        display: flex;
+        width: 16vw;
+        /*border: 1px solid #fff; for debugging*/
+        overflow: auto;
+        font-size: 0.6em;
+        font-family: 'Space Grotesk', Verdana, Geneva, Tahoma, sans-serif;
+    }
+        .main-menu { /*menucito celeste*/
+            /*border: 1px solid rgb(195, 95, 24); for debugging*/
+            background-color: rgba(70, 188, 224, 0.22);
+        }
+            .main-menu ul {
+                list-style-type:none;
+                padding: 0.2em 0 0.2em 0;
+            }
+        .site_content { /*lista de navegación izquierda*/
+            display: table;
+            padding-top: 1em;
+            /*border: 1px solid #fff; for debugging*/
+            padding-left: 0.5em;
+            background-color: rgba(4, 4, 22, 0.511);
+            flex: 1;
+        }
+        .site_content ul {
+            list-style-type:none;
+        }
+        .site_content ul li {
+            padding-top: 0.2em;
+        }
+.centercontainer { /*header y contenido real juntos*/
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /*border: 1px solid rgb(39, 184, 22); for debugging*/
+}    
+    header { /*ahora el header contiene al símbolo y título*/
+        display: flex;
+        background-color: rgba(4, 4, 22, 0.467);
+        /*border: 1px solid #fff; for debugging*/
+        text-align: center;
+        font-size: 0.9em;
+        width: 100%;
+    }
+        .title_header { /*ahora sí el título*/
+            /*border: 1px solid rgb(174, 27, 27); for debugging*/
+            flex: 1;
+        }
+        .title_header h1 { /*ahora sí el título*/
+            /*border: 1px solid rgb(174, 27, 27); for debugging*/
+            flex: 1;
+            font-weight: 250;
+            font-family: 'Satisfy', cursive, Verdana, Geneva, Tahoma, sans-serif;
+            text-shadow: 3px 3px 10px blue;
+        }
+        .rightsymbol { /*el símbolo para centrar el título*/
+            /*border: 1px solid rgb(188, 39, 214); for debugging*/
+            width: 17vw;
+            right: 0;
+        }
+        .rightsymbol img {
+            width: auto;
+            height: 3em;
+        }
+.emptycontent { /*contenedor del contenido real*/
+    /*border: 1px solid rgb(174, 27, 27); for debugging*/
+    flex: 1;
+    padding-left: 0.5em;
+    background-color: rgba(1, 1, 29, 0.374);
+}
+    iframe { /*overflow frame del contenido real*/
+        /*border: 1px solid rgb(208, 166, 28); for debugging*/
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        margin-right: 0.5em;
+        border: none;
+}
+    .realcontentcontainer {/*en el archivo de contenido*/
+        display: flex;
+    }
+        main {/*contenedor de los artículos*/
+            font-size: 1.5em;
+            flex: 1;
+            padding-right: 22vw;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+        main article {/*contenedor de los artículos*/
+            font-size: 1em;
+            }
+        main article .date {
+            font-size: 0.9em;
+            text-align: right;
+            padding-bottom: 0.2em;
+        }
+        main h2::before { /*Para dejar un espacio invisible detrás de los elementos h2 para que al hacer click en el link no los tape */
+            display: block; 
+            content: " "; 
+            margin-top: -0.3em; /*Este valor debe ser lo más cercano posible al tamaño del título para evitar problemas con otros elementos h2 más abajo*/
+            height: 0.3em; 
+            visibility: hidden; 
+            pointer-events: none;
+          }
+          main h2 { /*Para dejar un espacio invisible detrás de los elementos h2 para que al hacer click en el link no los tape */
+            padding-top: 0.3em;
+            padding-bottom: 0.2em;
+            font-weight: 545;
+          }/*para evitar que el título fijo tape al header cuando hago click en el link de anchor*/
+          footer {
+            text-align: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: 600;
+            text-shadow: 3px 3px 10px blue;
+            margin-top: 20px;
+            padding-bottom: 0.2em;
+            }
+.page_content { /*right navbar*/
+    overflow: auto;
+    width: 20vw;
+    height: 100%;
+    right: 0;
+    position: fixed;
+    /*border: 1px solid #fff; for debugging*/
+    font-style: italic;
+    font-size: 1.3em;
+    font-family: 'Space Grotesk', Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0.5em 0em 0em 0.5em;
+    text-align: left;
+    background-color: rgba(4, 4, 22, 0.204);
+}
+.page_content ul li { /*right navbar pero la lista*/
+    /*text-indent: -1.2em;
+    margin-left: 1.2em; esfont-size: 1.5em;tos dos para que queden alineadas las viñetas en la segunda línea*/
+    list-style-type: none;
+    padding-top: 0.5em;
+}
+@media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
+    y para quitar el margen derecho también en el texto*/
+    header {
+        font-size: 0.6em;
+    }
+    .leftbar {
+        width: 16vw;
+        font-size: 0.4em;
+    }
+    .page_content{ /*barra navegación derecha*/
+        display:none;
+    }
+    .page_content{ /*right navbar*/
+        font-size: 1.2em;
+    }
+    main { /*contiene los p de los artículos*/
+        padding-right: 1em;
+    }
+    main article {/*contenedor de los artículos*/
+        font-size: 0.6em;
+        }
+    .site_content { /*abajo leftbar*/
+        display: table; /*esto al padre para centrar*/
+        padding-top: 0;
+        padding-left: 0;
+        margin-left: 0;
+    }
+    .site_content ul {
+        display: table-cell; /*estos dos al hijo para centrar*/
+        vertical-align: middle;
+    }
+}
+@media screen and (min-width: 1500px) {
+    header {
+        font-size: 2em; 
+    }
+    .leftbar {
+        font-size: 1.5em;
+    }
+    .page_content { /*rightbar*/
+        font-size: 2.2em;
+    }
+    main article {/*contenedor de los artículos*/
+        font-size: 2em;
+        }
+}

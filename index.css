@@ -1,0 +1,42 @@
+
+* {
+    margin: 0;
+    padding: 0; 
+    color: bisque;
+    box-sizing: border-box;
+}
+body {
+    background-image: linear-gradient(to bottom right, rgb(3, 0, 26), rgb(8, 15, 85), rgb(3, 0, 26));
+}
+.landingcontainer {
+    display: flex;
+    flex-direction: column;
+    /*border: 1px solid #fff; for debugging*/
+    width: 100%;
+    height: 100vh;
+}
+.landingtitle {
+    text-align: center;
+}
+.landingwelcome {
+    text-align: center;
+
+}
+.landingnav {
+    /*border: 1px solid rgb(25, 202, 43); for debugging*/
+    flex: 1;
+}
+
+.landingnav ul {
+    display: flex;
+    justify-content: space-between;
+    /*border: 1px solid rgb(115, 30, 30); for debugging*/
+    height: 100%;
+
+}
+.landingnav ul li {
+    text-align: center;
+    /*border: 1px solid rgb(163, 159, 21); for debugging*/
+    list-style-type: none;
+    flex: 1;
+}
