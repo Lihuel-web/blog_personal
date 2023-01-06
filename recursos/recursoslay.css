@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    padding: 0; 
+    color: rgb(164, 206, 206);
 }
 body {
     display: flex;
@@ -9,25 +11,50 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    color: azure;
     border: 1px solid #e100ff; /*for debugging*/
+    padding: 0.3em;
     background-image: linear-gradient(to bottom right, rgb(8, 2, 56), rgb(8, 15, 85), rgb(8, 2, 56));
+}
+h1 {
+    text-align: center;
+    padding: 0.3em;
+    border: 1px solid #ffee00; /*for debugging*/
 }
 .mediumcontainer {
     display: flex;
+    flex: 1;
     flex-direction: column;
+    padding: 0.2em;
     border: 1px solid #00ff15; /*for debugging*/
-
+}
+.contenidosgenerales {
+    align-self: center;
+    text-align: center;
+    padding: 0.2em;
+    border: 1px solid #ffee00; /*for debugging*/
+}
+.contenidosgenerales li {
+    list-style-type: none;
+    flex: 1;
+    border: 1px solid #e100ff; /*for debugging*/
 }
 .firstrowcont {
     display: flex;
+    flex: 1;
     border: 1px solid #ffee00; /*for debugging*/
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 0.3em;
+    text-align: center;
 }
-
+.firstrowthirdcolumn {
+    border: 1px solid #e00909; /*for debugging*/
+}
 @media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
     y para quitar el margen derecho también en el texto*/
-    .mediumcontainer {
+    .firstrowcont {
+        flex: 0 1 auto;
     }
-}
+    .firstrowcont h2 {
+        padding-top: 0.3em;
+    }
