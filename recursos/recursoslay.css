@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+}
+.bigcontainer {
+    display: flex;
+    color: azure;
+    border-color: blue;
+    background-image: linear-gradient(to bottom right, rgb(8, 2, 56), rgb(8, 15, 85), rgb(8, 2, 56));
+}
+.mediumcontainer {
+
+}
+.firstrowcont {
+    
+}
