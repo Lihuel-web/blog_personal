@@ -1,15 +1,33 @@
 * {
     margin: 0;
 }
+body {
+    display: flex;
+    min-height: 100vh;
+}
 .bigcontainer {
     display: flex;
+    flex-direction: column;
+    flex: 1;
     color: azure;
-    border-color: blue;
+    border: 1px solid #e100ff; /*for debugging*/
     background-image: linear-gradient(to bottom right, rgb(8, 2, 56), rgb(8, 15, 85), rgb(8, 2, 56));
 }
 .mediumcontainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #00ff15; /*for debugging*/
 
 }
 .firstrowcont {
-    
+    display: flex;
+    border: 1px solid #ffee00; /*for debugging*/
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
+    y para quitar el margen derecho también en el texto*/
+    .mediumcontainer {
+    }
 }
