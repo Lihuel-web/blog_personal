@@ -5,7 +5,7 @@
     color: bisque;
     box-sizing: border-box;
 }
-body {
+html {
     background-image: linear-gradient(to bottom right, rgb(3, 0, 26), rgb(8, 15, 85), rgb(3, 0, 26));
 }
 .landingcontainer {
@@ -13,7 +13,6 @@ body {
     flex-direction: column;
     /*border: 1px solid #fff; for debugging*/
     width: 100%;
-    height: 100vh;
 }
 .landingtitle {
     text-align: center;
@@ -25,18 +24,43 @@ body {
 .landingnav {
     /*border: 1px solid rgb(25, 202, 43); for debugging*/
     flex: 1;
+    
 }
 
 .landingnav ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     /*border: 1px solid rgb(115, 30, 30); for debugging*/
+    
     height: 100%;
-
+    flex-wrap: wrap;
 }
 .landingnav ul li {
     text-align: center;
     /*border: 1px solid rgb(163, 159, 21); for debugging*/
     list-style-type: none;
-    flex: 1;
+    padding:0.5em;
 }
+.cajauno {
+    display: flex;
+    flex-direction: column;
+}
+.cajados {
+    display: flex;
+    flex-direction: column;
+}
+img {
+
+}
+@media screen and (max-width: 600px) { /*Esto es para ocultar el menú derecho en dispositivos móviles o al hacer mucho zoom
+    y para quitar el margen derecho también en el texto*/
+    img {
+   max-width: 50vh;
+    }
+}
+@media screen and (min-width: 1500px) {
+  
+html {
+    height: 100vh;
+    } 
+ }
