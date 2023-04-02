@@ -8,12 +8,26 @@
 </head>
 <body>
   <header>
+    <nav id="tiny-nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
     <h1>My Image Gallery</h1>
   </header>
 
+  <nav id="sidebar">
+    <ul>
+      <li><a href="#image1">Image 1</a></li>
+      <!-- Add more navigation items as needed -->
+    </ul>
+  </nav>
+
   <div class="gallery">
     <div class="image-card" onclick="showModal(1)">
-      <img src="image1.jpg" alt="Image 1">
+      <img src="image1.jpg" alt="Image 1" id="image1">
       <p class="image-description">Image 1 description goes here</p>
     </div>
     <!-- Add more image cards as needed -->
