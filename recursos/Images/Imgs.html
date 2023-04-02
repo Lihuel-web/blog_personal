@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>My Image Gallery</h1>
+  </header>
+
+  <div class="gallery">
+    <div class="image-card" onclick="showModal(1)">
+      <img src="image1.jpg" alt="Image 1">
+      <p class="image-description">Image 1 description goes here</p>
+    </div>
+    <!-- Add more image cards as needed -->
+  </div>
+
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <p id="modal-description" class="modal-description"></p>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
