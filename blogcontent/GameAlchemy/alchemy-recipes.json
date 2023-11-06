@@ -1,0 +1,11 @@
+{
+    "elements": {
+      "base": ["air", "earth", "fire", "water"],
+      "combined": ["steam", "mud"]
+    },
+    "combinations": {
+      "steam": ["air", "water"],
+      "mud": ["earth", "water"]
+      
+    }
+  }

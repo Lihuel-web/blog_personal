@@ -1,0 +1,70 @@
+﻿
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#elements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.element {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+#crafting-area {
+    border: 2px dashed #666;
+    height: 150px;
+    width: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#combination-results {
+    min-height: 50px;
+    color: #333;
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+#reset-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f44336; /* A strong color to indicate a reset action */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#reset-button:hover {
+    background-color: #d32f2f; /* Darken the color on hover for feedback */
+}
+
+#reset-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.5); /* Accessibility: Outline on focus */
+}
+
+#reset-button:active {
+    background-color: #b71c1c; /* Even darker color when clicked */
+}
