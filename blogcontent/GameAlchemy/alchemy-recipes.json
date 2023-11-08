@@ -1,8 +1,7 @@
 {
     "elements": {
       "base": ["Singularidad", "Expansión"],
-      "combined": ["Big Bang", "Energía Primordial", "Espacio-Tiempo", "Quarks", "Leptones", "Protones", "Neutrones", "Núcleos Atómicos", "Átomos"],
-      "combined": ["steam", "mud"]
+      "combined": ["Big Bang", "Energía Primordial", "Espacio-Tiempo", "Quarks", "Leptones", "Protones", "Neutrones", "Núcleos Atómicos", "Átomos"]
     },
     "combinations": {
     "Big Bang": ["Singularidad", "Expansión"],
@@ -10,7 +9,7 @@
     "Espacio-Tiempo": ["Big Bang", "Expansión"],
     "Quarks": ["Energía Primordial", "Espacio-Tiempo"],
     "Leptones": ["Energía Primordial", "Espacio-Tiempo"],
-    "Protones": ["Quarks", "Quarks"],
+    "Protones": ["Energía Primordial", "Quarks"],
     "Neutrones": ["Quarks", "Quarks"],
     "Núcleos Atómicos": ["Protones", "Neutrones"],
     "Átomos": ["Núcleos Atómicos", "Leptones"]
