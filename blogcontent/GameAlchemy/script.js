@@ -6,7 +6,7 @@ function loadGame() {
 }
 // Game state
 let discoveredElements = loadGame() || {
-  base: [],
+  base: ["Singularidad", "Expansión"],
   combined: []
 };
 let alchemyRecipes = {};
@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
             saveGame(discoveredElements);
         } else if (combinationResult) {
             // Element already discovered
-            resultsArea.textContent = `You have combined to recreate: ${combinationResult}`;
+            resultsArea.textContent = `Se ha creado: ${combinationResult}`;
         } else {
             // No new element discovered
-            resultsArea.textContent = "Nothing happened...";
+            resultsArea.textContent = "No ha pasado nada...";
         }
         // Clear the crafting area
         craftingArea.innerHTML = '';

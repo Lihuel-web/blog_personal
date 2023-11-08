@@ -7,6 +7,7 @@
     "Big Bang": ["Singularidad", "Expansión"],
     "Energía Primordial": ["Big Bang", "Singularidad"],
     "Espacio-Tiempo": ["Big Bang", "Expansión"],
+    
     "Quarks": ["Energía Primordial", "Espacio-Tiempo"],
     "Leptones": ["Energía Primordial", "Espacio-Tiempo"],
     "Protones": ["Energía Primordial", "Quarks"],
