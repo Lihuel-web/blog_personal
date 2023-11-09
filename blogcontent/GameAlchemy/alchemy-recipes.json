@@ -1,19 +1,49 @@
 {
-    "elements": {
-      "base": ["Singularidad", "Expansión"],
-      "combined": ["Big Bang", "Energía Primordial", "Espacio-Tiempo", "Quarks", "Leptones", "Protones", "Neutrones", "Núcleos Atómicos", "Átomos"]
-    },
-    "combinations": {
-    "Big Bang": ["Singularidad", "Expansión"],
-    "Energía Primordial": ["Big Bang", "Singularidad"],
-    "Espacio-Tiempo": ["Big Bang", "Expansión"],
-    
-    "Quarks": ["Energía Primordial", "Espacio-Tiempo"],
-    "Leptones": ["Energía Primordial", "Espacio-Tiempo"],
-    "Protones": ["Energía Primordial", "Quarks"],
-    "Neutrones": ["Quarks", "Quarks"],
-    "Núcleos Atómicos": ["Protones", "Neutrones"],
-    "Átomos": ["Núcleos Atómicos", "Leptones"]
-      
-    }
+  "elements": {
+      "base": [  "Singularidad",   "Expansión"
+      ],
+      "combined": [
+          "Big Bang",
+          "Energía Primordial",
+          "Espacio-Tiempo",
+          "Quarks",
+          "Leptones",
+          "Protones",
+          "Neutrones",
+          "Núcleos Atómicos",
+          "Átomos"
+      ]
+  },
+  "combinations": {
+      "ExpansiónSingularidad": [
+          "Big Bang"
+      ],
+      "Big BangSingularidad": [
+          "Energía Primordial"
+      ],
+      "Big BangExpansión": [
+          "Espacio-Tiempo",
+          "Vacío Cuántico",
+          "Fuerzas"
+      ],
+      "Vacío CuánticoVacío Cuántico": [
+        "Materia",
+        "Antimateria"
+      ],
+      "Energía PrimordialEspacio-Tiempo": [
+          "Leptones"
+      ],
+      "Energía PrimordialQuarks": [
+          "Protones"
+      ],
+      "QuarksQuarks": [
+          "Neutrones"
+      ],
+      "NeutronesProtones": [
+          "Núcleos Atómicos"
+      ],
+      "LeptonesNúcleos Atómicos": [
+          "Átomos"
+      ]
   }
+}

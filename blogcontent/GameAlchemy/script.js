@@ -72,33 +72,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkCombination() {
-    let currentElements = [...craftingArea.querySelectorAll('.element')].map(el => el.getAttribute('data-element'));
-    if (currentElements.length === 2) {
-        let combinationResult = combineElements(currentElements);
-        if (combinationResult && !discoveredElements.combined.includes(combinationResult)) {
-            // New element discovered
-            resultsArea.textContent = `You've created: ${combinationResult}`;
-            discoveredElements.combined.push(combinationResult);
-            createElementDiv(combinationResult); // Add the new element to the container
-            saveGame(discoveredElements);
-        } else if (combinationResult) {
-            // Element already discovered
-            resultsArea.textContent = `Se ha creado: ${combinationResult}`;
-        } else {
-            // No new element discovered
-            resultsArea.textContent = "No ha pasado nada...";
+        let currentElements = [...craftingArea.querySelectorAll('.element')].map(el => el.getAttribute('data-element'));
+        if (currentElements.length === 2) {
+            let combinationResults = combineElements(currentElements);
+            // Clear the crafting area before showing results or error message
+            craftingArea.innerHTML = '';
+            // If there are results, show them separated by commas
+            if (combinationResults && combinationResults.length > 0) {
+                let createdElementsList = combinationResults.map(combinationResult => {
+                    if (!discoveredElements.combined.includes(combinationResult)) {
+                        // New element discovered
+                        discoveredElements.combined.push(combinationResult);
+                        createElementDiv(combinationResult); // Add the new element to the container
+                    }
+                    return combinationResult; // Return the element to be added to the list
+                }).join(', '); // Join the elements with a comma
+                resultsArea.textContent = `Has creado: ${createdElementsList}`;
+                saveGame(discoveredElements);
+            } else {
+                // If no results, show the error message
+                resultsArea.textContent = "No ha pasado nada...";
+            }
         }
-        // Clear the crafting area
-        craftingArea.innerHTML = '';
     }
-}
 
     function combineElements(elements) {
-        let foundCombination = Object.keys(alchemyRecipes).find(key =>
-            alchemyRecipes[key].sort().join(',') === elements.sort().join(',')
-        );
-        return foundCombination || null;
+        let combinedElementsKey = elements.sort().join('');
+        let foundCombination = Object.keys(alchemyRecipes).find(key => key === combinedElementsKey);
+        if (foundCombination) {
+            // Select up to four possible results from the combinations
+            let possibleResults = alchemyRecipes[foundCombination];
+            return possibleResults.length > 4 ? possibleResults.slice(0, 4) : possibleResults;
+        } else {
+            return null;
+        }
     }
+    
 
     function saveGame(gameState) {
         localStorage.setItem('discoveredElements', JSON.stringify(gameState));
