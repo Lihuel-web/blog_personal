@@ -12,12 +12,14 @@
           "Fza nuclear fuerte",
           "Fza nuclear débil",
           "Electromagnetismo",
+          "Electrón", "Fotón", "Bosón de Higgs", "Gluón",
+          "Bosones", "Fermiones",
           "Quarks",
           "Leptones",
           "Protones",
           "Neutrones",
           
-          "Núcleos Atómicos",
+          "Núcleo Atómico",
           "Átomos",
           "Espuma Cuántica"
       ]
@@ -48,20 +50,14 @@
         "Materia",
         "Antimateria"
       ],
-      "Energía PrimordialEspacio-Tiempo": [
-          "Leptones"
-      ],
-      "Energía PrimordialQuarks": [
-          "Protones"
-      ],
-      "QuarksQuarks": [
-          "Neutrones"
-      ],
-      "NeutronesProtones": [
-          "Núcleos Atómicos"
-      ],
-      "LeptonesNúcleos Atómicos": [
-          "Átomos"
-      ]
+      "Energía PrimordialExpansión": ["Bosones", "Fermiones"],
+    "BosonesExpansión": ["Fotones", "Gluones", "Bosones W/Z", "Bosón de Higgs"],
+    "FermionesExpansión": ["Quarks", "Leptones"],
+    "QuarksQuarks": ["Protones", "Neutrones"],
+    "ProtonesNeutrones": ["Núcleo Atómico"],
+      "ElectrónNúcleo Atómico": ["Átomo"],
+      "FotónFotón": ["Radiación Electromagnética"],
+      "Bosón de HiggsPartícula": ["Partícula con Masa"]
+
   }
 }
