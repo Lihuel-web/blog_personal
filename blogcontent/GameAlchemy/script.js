@@ -97,12 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function combineElements(elements) {
-        // Ordenar los elementos alfabéticamente para generar la clave
-        let combinedElementsKey = elements.sort().join('');
-    
+        // Intentar ambas combinaciones posibles
+        let combinedElementsKey1 = elements[0] + elements[1];
+        let combinedElementsKey2 = elements[1] + elements[0];
+        
         // Buscar la clave en las recetas de alquimia
-        let foundCombination = alchemyRecipes[combinedElementsKey];
-    
+        let foundCombination = alchemyRecipes[combinedElementsKey1] || alchemyRecipes[combinedElementsKey2];
+        
         // Si se encuentra una combinación, retornar los resultados posibles
         if (foundCombination) {
             return foundCombination.length > 4 ? foundCombination.slice(0, 4) : foundCombination;
@@ -111,9 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return null;
         }
     }
-    
-    
-    
 
     function saveGame(gameState) {
         localStorage.setItem('discoveredElements', JSON.stringify(gameState));
