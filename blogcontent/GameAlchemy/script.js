@@ -97,16 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function combineElements(elements) {
+        // Ordenar los elementos alfabéticamente para generar la clave
         let combinedElementsKey = elements.sort().join('');
-        let foundCombination = Object.keys(alchemyRecipes).find(key => key === combinedElementsKey);
+    
+        // Buscar la clave en las recetas de alquimia
+        let foundCombination = alchemyRecipes[combinedElementsKey];
+    
+        // Si se encuentra una combinación, retornar los resultados posibles
         if (foundCombination) {
-            // Select up to four possible results from the combinations
-            let possibleResults = alchemyRecipes[foundCombination];
-            return possibleResults.length > 4 ? possibleResults.slice(0, 4) : possibleResults;
+            return foundCombination.length > 4 ? foundCombination.slice(0, 4) : foundCombination;
         } else {
+            // Si no se encuentra combinación, retornar nulo
             return null;
         }
     }
+    
+    
     
 
     function saveGame(gameState) {

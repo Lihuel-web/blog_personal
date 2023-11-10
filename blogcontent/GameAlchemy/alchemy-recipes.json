@@ -2,30 +2,48 @@
   "elements": {
       "base": [  "Singularidad",   "Expansión"
       ],
+      
       "combined": [
           "Big Bang",
           "Energía Primordial",
           "Espacio-Tiempo",
+          "Superfuerza",
+          "Gravedad",
+          "Fza nuclear fuerte",
+          "Fza nuclear débil",
+          "Electromagnetismo",
           "Quarks",
           "Leptones",
           "Protones",
           "Neutrones",
+          
           "Núcleos Atómicos",
-          "Átomos"
+          "Átomos",
+          "Espuma Cuántica"
       ]
   },
+  "_comment1": "LAS COMBINACIONES DEBEN IR EN ORDEN ALFABÉTICO POR AHORA",
   "combinations": {
       "ExpansiónSingularidad": [
           "Big Bang"
+          
       ],
       "Big BangSingularidad": [
-          "Energía Primordial"
+          "Energía Primordial",
+          "Superfuerza"
       ],
       "Big BangExpansión": [
           "Espacio-Tiempo",
-          "Vacío Cuántico",
-          "Fuerzas"
+          "Vacío Cuántico"
+          
       ],
+      "ExpansiónSuperfuerza": [
+        "Gravedad",
+        "Fza nuclear fuerte",
+        "Fza nuclear débil",
+        "Electromagnetismo" 
+
+    ],
       "Vacío CuánticoVacío Cuántico": [
         "Materia",
         "Antimateria"
