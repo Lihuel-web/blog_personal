@@ -11,6 +11,10 @@ let discoveredElements = loadGame() || {
 };
 let alchemyRecipes = {};
 
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const elementsContainer = document.getElementById('elements');
     const craftingArea = document.getElementById('crafting-area');
@@ -113,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
     function saveGame(gameState) {
         localStorage.setItem('discoveredElements', JSON.stringify(gameState));
     }
@@ -139,14 +144,68 @@ function resetGame() {
     initGame();
 }
 
-// ... (rest of your existing code)
-
-// You may also want to provide a button or some UI element to trigger this reset
-// For example, add a reset button in your HTML:
-// <button id="reset-button">Reset Game</button>
-
 // And then, bind the resetGame function to the click event of this button:
 document.getElementById('reset-button').addEventListener('click', resetGame);
+
+// Este código debería estar al final de tu archivo script.js para expandir y contraer el menú de la izquierda de la pantalla
+document.addEventListener('DOMContentLoaded', () => {
+    // Referencia al botón que controla la expansión/contracción del menú
+    const toggleButton = document.getElementById('menu-toggle');
+    // Referencia al menú lateral
+    const sideMenu = document.getElementById('side-menu');
+
+    // Función para cambiar el estado del menú lateral
+    function toggleMenu() {
+        const isExpanded = sideMenu.classList.contains('expanded');
+        // Alternar la clase 'expanded' del menú
+        sideMenu.classList.toggle('expanded', !isExpanded);
+        // Cambiar el texto de la flecha basado en el estado del menú
+        toggleButton.textContent = isExpanded ? '⮞' : '⮜';
+        // Ajustar la posición del botón de toggle basado en el estado del menú
+        toggleButton.style.left = isExpanded ? '0px' : '250px';
+    }
+
+    // Evento de clic para el botón de toggle
+    toggleButton.addEventListener('click', toggleMenu);
+
+    // Resto de tu código de inicialización y lógica del juego...
+});
+
+//Lo siguiente es para comprobar errores
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const toggleButton = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+
+        if (!toggleButton) {
+            console.error('El botón de menú no se encontró en el DOM.');
+            return;
+        }
+
+        toggleButton.addEventListener('click', () => {
+            const isExpanded = sideMenu.classList.contains('expanded');
+            sideMenu.classList.toggle('expanded');
+            toggleButton.textContent = isExpanded ? '⮞' : '⮜';
+            console.log('Menú ' + (isExpanded ? 'contraído.' : 'expandido.'));
+        });
+
+        console.log('Evento de menú desplegable vinculado correctamente.');
+    }, 100); // Retraso de 100ms
+    
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (resto del código de inicialización)
+
+    // Este es el código de prueba
+    const toggleButton = document.getElementById('menu-toggle');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function() {
+            console.log('El botón de menú fue clickeado.');
+        });
+    } else {
+        console.log('El botón de menú no se encontró.');
+    }
+});
 
 
 });

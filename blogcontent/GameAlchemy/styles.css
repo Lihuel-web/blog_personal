@@ -68,3 +68,63 @@
 #reset-button:active {
     background-color: #b71c1c; /* Even darker color when clicked */
 }
+
+#side-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50px; /* Ancho cuando está contraído */
+    height: 100%;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ccc;
+    transition: width 0.5s ease;
+    overflow-x: hidden; /* Ocultar contenido al contraer */
+    z-index: 1000; /* Asegúrate de que el menú y el botón estén por encima de otros elementos */
+}
+#side-menu.collapsed {
+    width: 0; /* Asegúrate de que el menú esté contraído inicialmente */
+    /* Otros estilos que ya tienes */
+}
+
+#side-menu.expanded {
+    width: 250px; /* Ancho cuando está expandido */
+}
+
+#menu-toggle {
+    position: fixed; /* Cambiado de absolute a fixed para mantenerlo en la misma posición */
+    top: 10px; /* Posición desde la parte superior del contenedor */
+    left: 50px; /* Posición desde la izquierda del contenedor */
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+    background-color: #e0e0e0; /* Un color de fondo para que sea visible */
+    padding: 5px; /* Algo de relleno para que sea más grande y fácil de hacer clic */
+    border: none; /* Sin borde para un aspecto limpio */
+    cursor: pointer; /* Cambiar el cursor para indicar que es clickeable */
+    display: block; /* Asegurarse de que se muestre como un bloque para el fondo y el relleno */
+}
+
+#menu-toggle:hover {
+    background-color: #c0c0c0; /* Cambio de color al pasar el mouse para feedback */
+}
+
+#menu-title {
+    padding: 10px;
+    text-align: center;
+}
+
+.element.in-menu {
+    /* Estilos para reducir tamaño dentro del menú y permitir más elementos */
+    width: 90%; /* Un poco menos de ancho para ajustarse al menú */
+    margin: 5px auto; /* Margen automático para centrar y un poco de espacio entre elementos */
+    font-size: 0.8em; /* Reducir el tamaño de la fuente para que quepan en el menú */
+    padding: 5px; /* Algo de relleno para mantenerlo tocable */
+    border: 1px solid #ccc; /* Un borde sutil */
+    background-color: #f9f9f9; /* Un fondo claro pero distinto al del menú */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Una sombra suave para profundidad */
+    cursor: default; /* El cursor predeterminado ya que no se arrastrarán estos elementos */
+    user-select: none; /* Evitar que el texto se seleccione para mejorar la experiencia de arrastrar */
+    transition: background-color 0.3s; /* Transición para el efecto al pasar el mouse */
+}
+
+.element.in-menu:hover {
+    background-color: #e0e0e0; /* Cambio de color al pasar el mouse para feedback */
+}
