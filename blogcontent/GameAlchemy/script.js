@@ -148,7 +148,7 @@ function resetGame() {
 
 // And then, bind the resetGame function to the click event of this button:
 document.getElementById('reset-button').addEventListener('click', resetGame);
-
+});
     // Nuevo código para el botón de menú y el menú lateral
     document.addEventListener('DOMContentLoaded', () => {
         const elementsContainer = document.getElementById('elements');
@@ -170,39 +170,3 @@ document.getElementById('reset-button').addEventListener('click', resetGame);
             console.log('Menú ' + (isExpanded ? 'expandido.' : 'contraído.'));
         });
     });
-
-//Lo siguiente es para comprobar errores
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        const toggleButton = document.getElementById('menu-toggle');
-        const sideMenu = document.getElementById('side-menu');
-
-        if (!toggleButton) {
-            console.error('El botón de menú no se encontró en el DOM.');
-            return;
-        }
-
-        toggleButton.addEventListener('click', () => {
-            const isExpanded = sideMenu.classList.contains('expanded');
-            sideMenu.classList.toggle('expanded');
-            toggleButton.textContent = isExpanded ? '⮞' : '⮜';
-            console.log('Menú ' + (isExpanded ? 'contraído.' : 'expandido.'));
-        });
-
-        console.log('Evento de menú desplegable vinculado correctamente.');
-    }, 100); // Retraso de 100ms
-    
-});
-document.addEventListener('DOMContentLoaded', () => {
-    // ... (resto del código de inicialización)
-
-    // Este es el código de prueba
-    const toggleButton = document.getElementById('menu-toggle');
-    if (toggleButton) {
-        toggleButton.addEventListener('click', function() {
-            console.log('El botón de menú fue clickeado.');
-        });
-    } else {
-        console.log('El botón de menú no se encontró.');
-    }
-});
