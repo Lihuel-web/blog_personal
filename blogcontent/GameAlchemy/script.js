@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsContainer = document.getElementById('elements');
     const craftingArea = document.getElementById('crafting-area');
     const resultsArea = document.getElementById('combination-results');
+    const toggleButton = document.getElementById('menu-toggle'); //agregados elementos del menú desplegable
+    const sideMenu = document.getElementById('side-menu');
 
     // Fetch game data from JSON file
     fetch('alchemy-recipes.json')
@@ -147,29 +149,27 @@ function resetGame() {
 // And then, bind the resetGame function to the click event of this button:
 document.getElementById('reset-button').addEventListener('click', resetGame);
 
-// Este código debería estar al final de tu archivo script.js para expandir y contraer el menú de la izquierda de la pantalla
-document.addEventListener('DOMContentLoaded', () => {
-    // Referencia al botón que controla la expansión/contracción del menú
-    const toggleButton = document.getElementById('menu-toggle');
-    // Referencia al menú lateral
-    const sideMenu = document.getElementById('side-menu');
-
-    // Función para cambiar el estado del menú lateral
-    function toggleMenu() {
-        const isExpanded = sideMenu.classList.contains('expanded');
-        // Alternar la clase 'expanded' del menú
-        sideMenu.classList.toggle('expanded', !isExpanded);
-        // Cambiar el texto de la flecha basado en el estado del menú
-        toggleButton.textContent = isExpanded ? '⮞' : '⮜';
-        // Ajustar la posición del botón de toggle basado en el estado del menú
-        toggleButton.style.left = isExpanded ? '0px' : '250px';
-    }
-
-    // Evento de clic para el botón de toggle
-    toggleButton.addEventListener('click', toggleMenu);
-
-    // Resto de tu código de inicialización y lógica del juego...
-});
+    // Nuevo código para el botón de menú y el menú lateral
+    document.addEventListener('DOMContentLoaded', () => {
+        const elementsContainer = document.getElementById('elements');
+        const craftingArea = document.getElementById('crafting-area');
+        const resultsArea = document.getElementById('combination-results');
+        const toggleButton = document.getElementById('menu-toggle'); //agregados elementos del menú desplegable
+        const sideMenu = document.getElementById('side-menu');
+    
+        toggleButton.addEventListener('click', () => {
+            // Alternar la clase 'expanded' del menú lateral
+            sideMenu.classList.toggle('expanded');
+    
+            // Determinar el nuevo estado del menú lateral
+            const isExpanded = sideMenu.classList.contains('expanded');
+            // Cambiar el texto y la posición del botón basado en el nuevo estado del menú
+            toggleButton.textContent = isExpanded ? '⮜' : '⮞';
+            toggleButton.style.left = isExpanded ? '250px' : '0px';
+    
+            console.log('Menú ' + (isExpanded ? 'expandido.' : 'contraído.'));
+        });
+    });
 
 //Lo siguiente es para comprobar errores
 document.addEventListener('DOMContentLoaded', () => {
@@ -206,8 +206,3 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('El botón de menú no se encontró.');
     }
 });
-
-
-});
-
-
