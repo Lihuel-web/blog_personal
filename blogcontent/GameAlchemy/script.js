@@ -1,9 +1,6 @@
 ﻿// The path to your JSON file
 const dataPath = 'alchemy-recipes.json';
-function loadGame() {
-    let savedGame = localStorage.getItem('discoveredElements');
-    return savedGame ? JSON.parse(savedGame) : { base: ["Singularidad", "Expansión"], combined: [] };
-}
+
 // Game state
 let discoveredElements = loadGame() || {
   base: ["Singularidad", "Expansión"],
@@ -11,9 +8,10 @@ let discoveredElements = loadGame() || {
 };
 let alchemyRecipes = {};
 
-
-
-
+function loadGame() {
+    let savedGame = localStorage.getItem('discoveredElements');
+    return savedGame ? JSON.parse(savedGame) : { base: ["Singularidad", "Expansión"], combined: [] };
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const elementsContainer = document.getElementById('elements');
@@ -35,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Only create divs for base elements and discovered combined elements
             discoveredElements.base.forEach(element => createElementDiv(element));
             discoveredElements.combined.forEach(element => createElementDiv(element));
+            updateNonCombinableElements(); // Call it here to update elements on game initialization
         }
 
     function createElementDiv(element) {
@@ -44,6 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
         elDiv.setAttribute('data-element', element); 
         elDiv.setAttribute('draggable', true);
         elDiv.ondragstart = dragStart;
+         // Add dblclick event listener to remove non-combinable element on double-click
+    elDiv.ondblclick = function(e) {
+        if (e.target.classList.contains('non-combinable')) {
+            e.target.remove(); // Remove the element from the main area
+        }
+    };
         elementsContainer.appendChild(elDiv);
     }
 
@@ -58,7 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let elementName = e.dataTransfer.getData('text');
         handleElementDrop(elementName);
     };
+    toggleButton.addEventListener('click', () => {
+        // Alternar la clase 'expanded' del menú lateral
+        sideMenu.classList.toggle('expanded');
 
+        // Determinar el nuevo estado del menú lateral
+        const isExpanded = sideMenu.classList.contains('expanded');
+        // Cambiar el texto y la posición del botón basado en el nuevo estado del menú
+        toggleButton.textContent = isExpanded ? '⮜' : '⮞';
+        toggleButton.style.left = isExpanded ? '250px' : '0px';
+
+        console.log('Menú ' + (isExpanded ? 'expandido.' : 'contraído.'));
+    });
     function handleElementDrop(elementName) {
         let currentElements = [...craftingArea.querySelectorAll('.element')];
         // Check if the crafting area already has two elements
@@ -76,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
+    
     function checkCombination() {
         let currentElements = [...craftingArea.querySelectorAll('.element')].map(el => el.getAttribute('data-element'));
         if (currentElements.length === 2) {
@@ -95,11 +111,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).join(', '); // Join the elements with a comma
                 resultsArea.textContent = `Has creado: ${createdElementsList}`;
                 saveGame(discoveredElements);
+                updateNonCombinableElements(); // Update non-combinable elements after a successful combination
             } else {
                 // If no results, show the error message
                 resultsArea.textContent = "No ha pasado nada...";
             }
         }
+    }
+
+    function hasMoreCombinations(elementName) {
+        // Check if elementName is part of any undiscovered combinations in alchemyRecipes
+    for (let recipe in alchemyRecipes) {
+        if (recipe.includes(elementName)) {
+            let possibleResults = alchemyRecipes[recipe];
+            // Check if any of the combination results have not been discovered yet
+            if (possibleResults.some(result => !discoveredElements.combined.includes(result))) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+    //dos siguientes funciones para mandar elementos usados no combinables al menú
+    function markElementAsNonCombinable(elementName) {
+        console.log("Marking element as non-combinable:", elementName);
+        let element = document.querySelector(`.element[data-element="${elementName}"]`);
+        if (element && !element.classList.contains('non-combinable')) {
+            element.classList.add('non-combinable');
+            addElementToMenu(element.cloneNode(true));
+        }
+    }
+    function updateNonCombinableElements() {
+        // Iterate over all discovered elements
+        discoveredElements.base.concat(discoveredElements.combined).forEach(elementName => {
+            if (!hasMoreCombinations(elementName)) {
+                // If all combinations involving the element have been discovered, mark it as non-combinable
+                markElementAsNonCombinable(elementName);
+            }
+        });
+    }
+    
+    function addElementToMenu(element) {
+        let menu = document.getElementById('non-combinable-elements');
+        element.classList.add('in-menu');
+        menu.appendChild(element);
     }
 
     function combineElements(elements) {
@@ -142,31 +197,12 @@ function resetGame() {
     craftingArea.innerHTML = '';
     // Clear any combination results displayed
     document.getElementById('combination-results').textContent = '';
+    // Clear the left menu ("Elementos No Combinables")
+    document.getElementById('non-combinable-elements').innerHTML = '';
     // Re-initialize the game elements
     initGame();
 }
 
 // And then, bind the resetGame function to the click event of this button:
 document.getElementById('reset-button').addEventListener('click', resetGame);
-});
-    // Nuevo código para el botón de menú y el menú lateral
-    document.addEventListener('DOMContentLoaded', () => {
-        const elementsContainer = document.getElementById('elements');
-        const craftingArea = document.getElementById('crafting-area');
-        const resultsArea = document.getElementById('combination-results');
-        const toggleButton = document.getElementById('menu-toggle'); //agregados elementos del menú desplegable
-        const sideMenu = document.getElementById('side-menu');
-    
-        toggleButton.addEventListener('click', () => {
-            // Alternar la clase 'expanded' del menú lateral
-            sideMenu.classList.toggle('expanded');
-    
-            // Determinar el nuevo estado del menú lateral
-            const isExpanded = sideMenu.classList.contains('expanded');
-            // Cambiar el texto y la posición del botón basado en el nuevo estado del menú
-            toggleButton.textContent = isExpanded ? '⮜' : '⮞';
-            toggleButton.style.left = isExpanded ? '250px' : '0px';
-    
-            console.log('Menú ' + (isExpanded ? 'expandido.' : 'contraído.'));
-        });
-    });
+})

@@ -26,6 +26,12 @@
     user-select: none;
 }
 
+.element.non-combinable {
+    background-color: #ffcccb; /* A light red color to indicate non-combinability */
+    color: #333;
+    border-color: #ff0000; /* A darker red for the border */
+}
+
 #crafting-area {
     border: 2px dashed #666;
     height: 150px;
