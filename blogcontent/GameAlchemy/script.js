@@ -34,6 +34,59 @@ function handleMobileDoubleTap(element) {
     });
 }
 
+function handleTouchDrag(element, craftingArea) {
+    let originalPosition = {};
+    let moving = false;
+
+    element.addEventListener('touchstart', function(e) {
+        // Guardar la posición original
+        let rect = element.getBoundingClientRect();
+        originalPosition = { x: rect.left, y: rect.top };
+
+        let touch = e.touches[0];
+        let offsetX = touch.clientX - rect.left;
+        let offsetY = touch.clientY - rect.top;
+        moving = true;
+
+        // Estilo para mover el elemento
+        element.style.position = 'absolute';
+        element.style.zIndex = 1000;
+
+        function moveAt(clientX, clientY) {
+            element.style.left = clientX - offsetX + 'px';
+            element.style.top = clientY - offsetY + 'px';
+        }
+
+        // Mover el elemento inmediatamente
+        moveAt(touch.clientX, touch.clientY);
+    });
+
+    element.addEventListener('touchmove', function(e) {
+        if (moving) {
+            let touch = e.touches[0];
+            moveAt(touch.clientX, touch.clientY);
+        }
+    });
+
+    element.addEventListener('touchend', function(e) {
+        moving = false;
+        element.style.position = '';
+        element.style.zIndex = '';
+
+        // Verificar si el elemento se soltó dentro del área de crafteo
+        let craftingRect = craftingArea.getBoundingClientRect();
+        let elementRect = element.getBoundingClientRect();
+
+        if (elementRect.left > craftingRect.left && elementRect.right < craftingRect.right &&
+            elementRect.top > craftingRect.top && elementRect.bottom < craftingRect.bottom) {
+            // Lógica si se suelta dentro del área de crafteo
+        } else {
+            // Devolver a la posición original si no se suelta en el área de crafteo
+            element.style.left = originalPosition.x + 'px';
+            element.style.top = originalPosition.y + 'px';
+        }
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const elementsContainer = document.getElementById('elements');
@@ -75,6 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         // Add this line within the function
         handleMobileDoubleTap(elDiv);  // For mobile double-tap handling
+         // Añadir el manejo del arrastre táctil
+    handleTouchDrag(elDiv, document.getElementById('crafting-area'));
         };
         elementsContainer.appendChild(elDiv);
     }
