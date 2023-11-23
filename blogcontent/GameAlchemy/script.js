@@ -39,7 +39,6 @@ function handleTouchDrag(element, craftingArea) {
     let moving = false;
 
     element.addEventListener('touchstart', function(e) {
-        // Guardar la posición original
         let rect = element.getBoundingClientRect();
         originalPosition = { x: rect.left, y: rect.top };
 
@@ -48,7 +47,6 @@ function handleTouchDrag(element, craftingArea) {
         let offsetY = touch.clientY - rect.top;
         moving = true;
 
-        // Estilo para mover el elemento
         element.style.position = 'absolute';
         element.style.zIndex = 1000;
 
@@ -57,14 +55,17 @@ function handleTouchDrag(element, craftingArea) {
             element.style.top = clientY - offsetY + 'px';
         }
 
-        // Mover el elemento inmediatamente
         moveAt(touch.clientX, touch.clientY);
+
+        // Prevenir el scroll y el zoom en dispositivos móviles
+        e.preventDefault();
     });
 
     element.addEventListener('touchmove', function(e) {
         if (moving) {
             let touch = e.touches[0];
             moveAt(touch.clientX, touch.clientY);
+            e.preventDefault(); // Prevenir acciones por defecto mientras se mueve
         }
     });
 
@@ -73,15 +74,12 @@ function handleTouchDrag(element, craftingArea) {
         element.style.position = '';
         element.style.zIndex = '';
 
-        // Verificar si el elemento se soltó dentro del área de crafteo
         let craftingRect = craftingArea.getBoundingClientRect();
         let elementRect = element.getBoundingClientRect();
 
-        if (elementRect.left > craftingRect.left && elementRect.right < craftingRect.right &&
-            elementRect.top > craftingRect.top && elementRect.bottom < craftingRect.bottom) {
-            // Lógica si se suelta dentro del área de crafteo
-        } else {
-            // Devolver a la posición original si no se suelta en el área de crafteo
+        if (!(elementRect.left > craftingRect.left && elementRect.right < craftingRect.right &&
+            elementRect.top > craftingRect.top && elementRect.bottom < craftingRect.bottom)) {
+            // Volver a la posición original si no se suelta en el área de crafteo
             element.style.left = originalPosition.x + 'px';
             element.style.top = originalPosition.y + 'px';
         }
