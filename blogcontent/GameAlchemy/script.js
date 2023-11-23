@@ -12,6 +12,25 @@ function loadGame() {
     let savedGame = localStorage.getItem('discoveredElements');
     return savedGame ? JSON.parse(savedGame) : { base: ["Singularidad", "Expansión"], combined: [] };
 }
+// Place this at the top of your script.js file
+//Double tap for cellphones
+let lastTap = 0;
+
+function handleDoubleTap(element) {
+    element.addEventListener('touchend', function(e) {
+        let currentTime = new Date().getTime();
+        let tapLength = currentTime - lastTap;
+        if (tapLength < 300 && tapLength > 0) {
+            // Logic for double tap goes here
+            if (e.target.classList.contains('non-combinable')) {
+                let clonedElement = e.target.cloneNode(true);
+                addElementToMenu(clonedElement);
+                e.target.remove();
+            }
+        }
+        lastTap = currentTime;
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const elementsContainer = document.getElementById('elements');
@@ -43,12 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
         elDiv.setAttribute('data-element', element); 
         elDiv.setAttribute('draggable', true);
         elDiv.ondragstart = dragStart;
-         // Add dblclick event listener to remove non-combinable element on double-click
-    elDiv.ondblclick = function(e) {
-        if (e.target.classList.contains('non-combinable')) {
-            e.target.remove(); // Remove the element from the main area
-        }
-    };
+         // Add dblclick event listener to move non-combinable element to the left menu on double-click
+         elDiv.ondblclick = function(e) {
+            if (e.target.classList.contains('non-combinable')) {
+                // Clonar y mover el elemento al menú de la izquierda
+                let clonedElement = e.target.cloneNode(true);
+                addElementToMenu(clonedElement);
+                e.target.remove(); // Opcional: remover el elemento del área principal
+            }
+        // Add this line within the function
+        handleDoubleTap(elDiv); // For mobile double-tap handling
+        };
         elementsContainer.appendChild(elDiv);
     }
 
@@ -138,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let element = document.querySelector(`.element[data-element="${elementName}"]`);
         if (element && !element.classList.contains('non-combinable')) {
             element.classList.add('non-combinable');
-            addElementToMenu(element.cloneNode(true));
+            // Removed the automatic addition to the left menu
         }
     }
     function updateNonCombinableElements() {
