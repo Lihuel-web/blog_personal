@@ -14,23 +14,26 @@ function loadGame() {
 }
 // Place this at the top of your script.js file
 //Double tap for cellphones
-let lastTap = 0;
+let lastTapTime = 0;
+let lastTapElement = null;
 
-function handleDoubleTap(element) {
-    element.addEventListener('touchend', function(e) {
+function handleMobileDoubleTap(element) {
+    element.addEventListener('touchstart', function(e) {
         let currentTime = new Date().getTime();
-        let tapLength = currentTime - lastTap;
-        if (tapLength < 300 && tapLength > 0) {
-            // Logic for double tap goes here
+        let tapLength = currentTime - lastTapTime;
+        if (tapLength < 300 && tapLength > 0 && lastTapElement === e.target) {
+            // Lógica para doble tap aquí
             if (e.target.classList.contains('non-combinable')) {
                 let clonedElement = e.target.cloneNode(true);
                 addElementToMenu(clonedElement);
                 e.target.remove();
             }
         }
-        lastTap = currentTime;
+        lastTapTime = currentTime;
+        lastTapElement = e.target;
     });
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const elementsContainer = document.getElementById('elements');
@@ -71,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.target.remove(); // Opcional: remover el elemento del área principal
             }
         // Add this line within the function
-        handleDoubleTap(elDiv); // For mobile double-tap handling
+        handleMobileDoubleTap(elDiv);  // For mobile double-tap handling
         };
         elementsContainer.appendChild(elDiv);
     }
