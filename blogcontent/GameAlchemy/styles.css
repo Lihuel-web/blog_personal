@@ -1,12 +1,15 @@
-﻿
+﻿/* --- Layout del contenedor principal --- */
 #game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh; /* Ajustado para que no se corte en pantallas más pequeñas */
+    margin: 0 auto;
+    max-width: 800px; /* Opcional, para centrar en pantallas grandes */
 }
 
+/* --- Sección de los elementos base y descubiertos --- */
 #elements {
     display: flex;
     flex-wrap: wrap;
@@ -14,6 +17,7 @@
     margin-bottom: 20px;
 }
 
+/* --- Cada elemento individual --- */
 .element {
     width: 100px;
     height: 100px;
@@ -24,14 +28,18 @@
     justify-content: center;
     cursor: pointer;
     user-select: none;
+    text-align: center;
+    box-sizing: border-box;
 }
 
+/* --- Elementos no combinables (color rojizo) --- */
 .element.non-combinable {
-    background-color: #ffcccb; /* A light red color to indicate non-combinability */
+    background-color: #ffcccb; /* A light red color */
     color: #333;
     border-color: #ff0000; /* A darker red for the border */
 }
 
+/* --- Área de crafteo --- */
 #crafting-area {
     border: 2px dashed #666;
     height: 150px;
@@ -42,11 +50,13 @@
     justify-content: center;
 }
 
+/* --- Sección de resultados de combinaciones --- */
 #combination-results {
     min-height: 50px;
     color: #333;
 }
 
+/* --- Botón de reinicio --- */
 #controls {
     margin-top: 20px;
 }
@@ -63,74 +73,101 @@
 }
 
 #reset-button:hover {
-    background-color: #d32f2f; /* Darken the color on hover for feedback */
+    background-color: #d32f2f;
 }
 
 #reset-button:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.5); /* Accessibility: Outline on focus */
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.5);
 }
 
 #reset-button:active {
-    background-color: #b71c1c; /* Even darker color when clicked */
+    background-color: #b71c1c;
 }
 
-#side-menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 50px; /* Ancho cuando está contraído */
-    height: 100%;
-    background-color: #f9f9f9;
-    border-right: 1px solid #ccc;
-    transition: width 0.5s ease;
-    overflow-x: hidden; /* Ocultar contenido al contraer */
-    z-index: 1000; /* Asegúrate de que el menú y el botón estén por encima de otros elementos */
-}
-#side-menu.collapsed {
-    width: 0; /* Asegúrate de que el menú esté contraído inicialmente */
-    /* Otros estilos que ya tienes */
-}
-
-#side-menu.expanded {
-    width: 250px; /* Ancho cuando está expandido */
-}
-
-#menu-toggle {
-    position: fixed; /* Cambiado de absolute a fixed para mantenerlo en la misma posición */
-    top: 10px; /* Posición desde la parte superior del contenedor */
-    left: 50px; /* Posición desde la izquierda del contenedor */
-    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
-    background-color: #e0e0e0; /* Un color de fondo para que sea visible */
-    padding: 5px; /* Algo de relleno para que sea más grande y fácil de hacer clic */
-    border: none; /* Sin borde para un aspecto limpio */
-    cursor: pointer; /* Cambiar el cursor para indicar que es clickeable */
-    display: block; /* Asegurarse de que se muestre como un bloque para el fondo y el relleno */
-}
-
-#menu-toggle:hover {
-    background-color: #c0c0c0; /* Cambio de color al pasar el mouse para feedback */
-}
-
-#menu-title {
-    padding: 10px;
+/* --- Contenedor para elementos no combinables --- */
+#non-combinable-section {
+    margin-top: 40px;
+    width: 100%;
     text-align: center;
 }
 
+#non-combinable-elements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* --- Elementos dentro de la sección no combinable --- */
 .element.in-menu {
-    /* Estilos para reducir tamaño dentro del menú y permitir más elementos */
-    width: 90%; /* Un poco menos de ancho para ajustarse al menú */
-    margin: 5px auto; /* Margen automático para centrar y un poco de espacio entre elementos */
-    font-size: 0.8em; /* Reducir el tamaño de la fuente para que quepan en el menú */
-    padding: 5px; /* Algo de relleno para mantenerlo tocable */
-    border: 1px solid #ccc; /* Un borde sutil */
-    background-color: #f9f9f9; /* Un fondo claro pero distinto al del menú */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Una sombra suave para profundidad */
-    cursor: default; /* El cursor predeterminado ya que no se arrastrarán estos elementos */
-    user-select: none; /* Evitar que el texto se seleccione para mejorar la experiencia de arrastrar */
-    transition: background-color 0.3s; /* Transición para el efecto al pasar el mouse */
+    width: 90%;
+    margin: 5px auto; 
+    font-size: 0.8em; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    cursor: default; 
+    user-select: none; 
+    transition: background-color 0.3s;
 }
 
 .element.in-menu:hover {
-    background-color: #e0e0e0; /* Cambio de color al pasar el mouse para feedback */
+    background-color: #e0e0e0;
 }
+
+/* Modal en overlay: ocupa toda la pantalla, centrado */
+#diagram-modal {
+    position: fixed;          /* Fijo, siempre encima */
+    top: 0; 
+    left: 0;
+    width: 100vw;             /* Ocupa todo el viewport */
+    height: 100vh; 
+    background-color: rgba(0,0,0,0.5); /* Fondo semitransparente */
+    display: none;            /* Oculto por defecto */
+    align-items: center;      /* Centrar contenido verticalmente (Flex) */
+    justify-content: center;  /* Centrar contenido horizontalmente (Flex) */
+    z-index: 9999;            /* Asegura que esté encima de todo */
+  }
+  
+  /* Cuando queramos mostrarlo, le agregaremos la clase 'visible' */
+  #diagram-modal.visible {
+    display: flex; /* Se verá en pantalla */
+  }
+  
+  #diagram-content {
+    background: #fff;
+    width: 80%;
+    height: 80%;
+    position: relative;       /* Para posicionar el botón de cerrar */
+    overflow: hidden;         /* Por si el diagrama se sale */
+    border-radius: 6px;       /* Bordes redondeados, opcional */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.5); /* Sombra agradable */
+  }
+  
+  /* El contenedor del diagrama Vis.js */
+  #network-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Botón de cierre (X) */
+  #diagram-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  #diagram-close-button:hover {
+    color: #000;
+  }
+  
+  /* El resto de estilos (game-container, elements, etc.) son los mismos que tenías */
+  

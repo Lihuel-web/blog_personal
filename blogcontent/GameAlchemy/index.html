@@ -1,34 +1,64 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Alchemy Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Alchemy Game</title>
+
+  <!-- Tu hoja de estilos principal -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Vis.js (versión pinneada en un CDN) -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css"
+    rel="stylesheet"
+  />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.js"
+  ></script>
 </head>
 <body>
-    <div id="side-menu" class="collapsed">
-        <div id="menu-toggle">⮞</div>
-        <div id="menu-title">Elementos No Combinables</div>
-        <div id="non-combinable-elements">
-            <!-- Los elementos no combinables se añadirán aquí dinámicamente -->
-        </div>
+
+  <div id="game-container">
+    <section id="elements">
+      <!-- Se llenará dinámicamente por script.js -->
+    </section>
+
+    <section id="crafting-area">
+      <!-- Área de crafteo -->
+    </section>
+
+    <div id="combination-results">
+      <!-- Resultados de combinaciones -->
     </div>
-    <!-- Resto de tu HTML existente -->
-    
-    <div id="game-container">
-        <section id="elements">
-            <!-- Elements will be dynamically added here -->
-        </section>
-        <section id="crafting-area">
-            <!-- Players will drag elements here to combine them -->
-        </section>
-        <div id="combination-results">
-            <!-- Display the results of element combinations here -->
-        </div>
-        <div id="controls">
-            <button id="reset-button">Reset Game</button>
-        </div>
+
+    <div id="controls">
+      <!-- Botón de reset -->
+      <button id="reset-button">Reset Game</button>
+      <!-- Botón para abrir el diagrama (modal) -->
+      <button id="diagram-toggle-button">Ver Diagrama</button>
     </div>
-    <script src="script.js"></script>
+
+    <div id="non-combinable-section">
+      <h2>Elementos No Combinables</h2>
+      <div id="non-combinable-elements">
+        <!-- Se llenará dinámicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal en overlay para el diagrama -->
+  <div id="diagram-modal">
+    <div id="diagram-content">
+      <!-- Botón de cierre (X) -->
+      <button id="diagram-close-button" class="close-btn">&times;</button>
+
+      <!-- Contenedor donde Vis.js dibuja el grafo -->
+      <div id="network-container"></div>
+    </div>
+  </div>
+
+  <!-- Tu script principal -->
+  <script src="script.js"></script>
+
 </body>
 </html>
